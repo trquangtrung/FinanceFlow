@@ -1,0 +1,374 @@
+// SCSS những component dùng chung
+// <!-- Progress bar -->
+.progressbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--white-cl);
+    width: 0%;
+    z-index: 600;
+}
+// error
+.error {
+    font-size: var(--f-text-menu);
+    line-height: var(--lh-text-menu);
+    color: rgb(246, 63, 63);
+    margin-top: 5px;
+    position: absolute;
+    bottom: -25px;
+    left: 20px;
+
+    @include xs {
+        bottom: 85px;
+    }
+}
+// btn
+.btn {
+    background: var(--blue-cl);
+    color: var(--white-cl);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80px;
+    font-family: db;
+    font-size: var(--f-text-button);
+    line-height: var(--lh-text-button);
+    text-transform: uppercase;
+    width: fit-content;
+    white-space: nowarp;
+    cursor: pointer;
+
+    @include transition(var(--time-transtion));
+    &.--b1 {
+        height: var(--h-btn-b1);
+        white-space: nowrap;
+    }
+    &.--b2 {
+        height: var(--h-btn-b2);
+        &.--icon {
+            white-space: nowrap;
+            svg {
+                margin-right: 8px;
+                path {
+                    @include transition(var(--time-transtion));
+                }
+            }
+            &:hover {
+                background: var(--white-cl);
+                color: var(--blue-cl);
+                & svg path {
+                    fill: var(--blue-cl);
+                }
+            }
+        }
+    }
+    &:hover {
+        background: var(--white-cl);
+        color: var(--blue-cl);
+    }
+    @include xs {
+        width: initial;
+    }
+}
+.btngroup {
+    display: flex;
+    gap: var(--gap);
+    .--transparent {
+        background: var(--white-cl-light);
+        color: var(--white-cl);
+        &:hover {
+            background: var(--blue-cl);
+        }
+    }
+    @include xs {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+// tags
+.btntags {
+    background: var(--blue-cl);
+    color: var(--white-cl);
+    height: var(--h-tags);
+    padding: 0 16px;
+    text-transform: uppercase;
+    width: fit-content;
+    border-radius: 1000px;
+    font-family: dm;
+    font-size: var(--f-text-tag);
+    line-height: var(--lh-text-tag);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// textbox
+.textbox {
+    .heading {
+        font-family: db;
+        color: var(--white-cl);
+        &.--h1 {
+            font-size: var(--heading-h1);
+            line-height: var(--lh-h1);
+        }
+        &.--h2 {
+            font-size: var(--heading-h2);
+            line-height: var(--lh-h2);
+        }
+        &.--h3 {
+            font-size: var(--heading-h3);
+            line-height: var(--lh-h3);
+            a {
+                color: var(--white-cl);
+                @include transition(var(--time-transtion));
+                &:hover {
+                    color: var(--blue-cl);
+                }
+            }
+        }
+    }
+    .desc {
+        max-width: 496px;
+    }
+
+    // Responsive
+    @include xs {
+        .heading {
+            &.--h1 {
+                font-size: var(--heading-h1);
+                line-height: var(--lh-h1);
+            }
+        }
+    }
+}
+
+// list
+.list {
+    &__item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 17px;
+        img {
+            margin-right: 17px;
+        }
+    }
+}
+
+// author
+.author {
+    display: flex;
+    align-items: center;
+    &__img {
+        @include frameimg(58px, 58px);
+        margin-right: 22px;
+        img {
+            @include midimg();
+            border-radius: 100%;
+        }
+    }
+    &__infor {
+        text-transform: uppercase;
+        font-size: var(--f-text-button);
+        line-height: var(--lh-text-button);
+        &-name {
+            font-family: db;
+            margin-bottom: 8px;
+        }
+    }
+}
+// form input
+.formgroup__row-input {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    flex: 1;
+    label {
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        font-family: db;
+    }
+    input {
+        border: 1px solid var(--light-blue);
+        background: var(--light-blue);
+        border-radius: 100px;
+        height: 68px;
+        padding: 0 25px;
+        outline: 0;
+        width: 100%;
+        color: var(--white-cl);
+        @include transition(var(--time-transtion));
+        &::placeholder {
+            color: var(--white-cl);
+            font-size: var(--f-label);
+            line-height: var(--lh-body-2);
+        }
+        &.inputerror {
+            border: 1px solid red;
+        }
+        &:hover {
+            border: 1px solid var(--white-cl);
+        }
+        &:focus {
+            border: 1px solid var(--blue-cl);
+        }
+    }
+    textarea {
+        border: 1px solid var(--light-blue);
+        background: var(--light-blue);
+        border-radius: 14px;
+        width: 100%;
+        height: 162px;
+        padding: 20px;
+        outline: 0;
+        resize: none;
+        color: var(--white-cl);
+        @include transition(var(--time-transtion));
+        &::placeholder {
+            color: var(--white-cl);
+        }
+        &.inputerror {
+            border: 1px solid red;
+        }
+        &:hover {
+            border: 1px solid var(--white-cl);
+        }
+    }
+
+    @include sm {
+        .error {
+            bottom: -33px;
+        }
+    }
+    @include xs {
+        margin-bottom: 10px;
+        input {
+            border: 1px solid black;
+        }
+        textarea {
+            border: 1px solid black;
+        }
+        .error {
+            bottom: -28px;
+        }
+    }
+}
+
+// <!-- section subscribe -->
+.scsubcribe {
+    margin-top: 92px;
+    background: var(--blue-cl);
+    padding: 83px 0;
+    .container {
+        @include mid(true);
+        justify-content: space-between;
+    }
+    &__left {
+        @include mid(true);
+        gap: 25px;
+        h2 {
+            font-family: db;
+            font-size: var(--heading-h2);
+            line-height: var(--lh-h2);
+            max-width: 572px;
+        }
+    }
+    &__right {
+        @include mid(true);
+        position: relative;
+        .formgroup {
+            .search {
+                width: 480px;
+                border-radius: 100px;
+                height: 80px;
+                padding-left: 16px;
+                padding-right: 155px;
+                outline: 0;
+                color: var(--blue-dark);
+                z-index: 3;
+                font-size: var(--f-body-2);
+                line-height: var(--lh-body-2);
+                &::placeholder {
+                    color: var(--blue-dark);
+                }
+                &.inputerror {
+                    border: 2px solid red;
+                }
+            }
+        }
+        &-btn {
+            color: var(--white-cl);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            z-index: 4;
+            height: 64px;
+            background: var(--blue-cl);
+            border-radius: 100px;
+            padding: 0 28px;
+            font-family: db;
+            font-size: var(--f-text-menu);
+            line-height: var(--lh-text-menu);
+            @include mid(true);
+            text-transform: uppercase;
+            margin-right: 8px;
+            cursor: pointer;
+            @include transition(var(--time-transtion));
+            &:hover {
+                background: var(--blue-medium);
+            }
+        }
+    }
+    @include sm {
+        &__left {
+            h2 {
+                max-width: 370px;
+            }
+        }
+        &__right {
+            .formgroup {
+                width: 100%;
+                .search {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @include xs {
+        margin-top: 80px;
+        .container {
+            flex-direction: column;
+            align-items: initial;
+        }
+        &__left {
+            flex-direction: column;
+            text-align: center;
+            h2 {
+                max-width: 350;
+            }
+        }
+        &__right {
+            flex-direction: column;
+            margin-top: 20px;
+            .formgroup {
+                .search {
+                    padding-right: 16px;
+                }
+            }
+            &-btn {
+                background: #031fb4;
+                position: initial;
+                top: initial;
+                transform: initial;
+                width: 100%;
+                margin-top: 44px;
+            }
+        }
+    }
+}

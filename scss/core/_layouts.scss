@@ -1,0 +1,51 @@
+html {
+	font-size: 62.5%; // 1rem = 10px
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 1px grey;
+		border-radius: 4px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: var(--blue-cl);
+		border-radius: 80px;
+	}
+	&.--disable-scroll {
+		overflow: hidden;
+		height: 100vh;
+	}
+	body {
+		width: 100%;
+		margin: auto;
+		scroll-behavior: smooth;
+		font-family: dr;
+		font-size: var(--f-body-1);
+		line-height: var(--lh-body-1);
+		letter-spacing: 0;
+		background: var(--blue-dark);
+		color: var(--white-cl);
+
+		.container {
+			width: 100%;
+			max-width: var(--mw-container);
+			padding-right: var(--gap);
+			padding-left: var(--gap);
+			margin-right: auto;
+			margin-left: auto;
+			position: relative;
+		}
+		.main {
+			position: relative;
+		}
+	}
+
+	@include sm {
+		font-size: 58%;
+	}
+	@include xs {
+		font-size: 62.5%;
+	}
+}

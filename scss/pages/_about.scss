@@ -1,0 +1,370 @@
+.mainabout {
+    // <!-- section About Finance Flow -->
+    overflow: visible;
+    .scflow {
+        position: relative;
+        margin-top: calc(var(--h-header) + 60px);
+        &__bg {
+            position: absolute;
+            z-index: -1;
+            top: -90px;
+            left: -250px;
+            opacity: 50%;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .textbox {
+            .desc {
+                text-align: center;
+                max-width: 609px;
+            }
+        }
+
+        @include xs {
+            .container {
+                align-items: initial;
+            }
+            .textbox {
+                .desc {
+                    text-align: initial;
+                }
+            }
+        }
+    }
+    //<!-- section What drives Finance Flow-->
+    .scwhatflow {
+        padding-top: 100px;
+        .textbox {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        &__boxs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--gap);
+            margin-top: 29px;
+            &-item {
+                background: var(--light-blue);
+                padding: 58px 32px;
+                border-radius: 40px;
+                display: flex;
+                gap: 24px;
+
+                .img {
+                    flex: 0 0 68px;
+                }
+
+                .content {
+                    .h3 {
+                        text-transform: uppercase;
+                        line-height: var(--lh-label);
+                        font-family: db;
+                        padding-bottom: 12px;
+                    }
+                }
+            }
+        }
+        @include sm {
+            .textbox {
+                flex-direction: column;
+                align-items: initial;
+                .desc {
+                    max-width: initial;
+                }
+            }
+            &__boxs {
+                &-item {
+                    padding: 48px 22px;
+                }
+            }
+        }
+        @include xs {
+            padding-top: 36px;
+            .textbox {
+                margin-bottom: 14px;
+            }
+            &__boxs {
+                grid-template-columns: 1fr;
+                margin-top: 10px;
+                &-item {
+                    flex-direction: column;
+                    margin-bottom: -10px;
+                }
+            }
+        }
+    }
+
+    // <!-- section Our mission, Our Story -->
+    .scour {
+        margin-top: 232px;
+        overflow-x: hidden;
+        .container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--gap);
+        }
+        &__content {
+            grid-column: 1/7;
+            .textbox {
+                .heading {
+                    margin-bottom: 6px;
+                }
+                .desc {
+                    max-width: initial;
+                    margin-top: 5px;
+                    &__one {
+                        margin-bottom: 25px;
+                    }
+                }
+            }
+            .textbox:nth-child(odd) {
+                margin-bottom: 65px;
+            }
+        }
+        &__img {
+            grid-column: 8/13;
+            margin-right: -160px;
+            height: 100%;
+
+            &-mobile {
+                display: none;
+            }
+        }
+        @include md {
+            margin-top: 190px;
+            .container {
+                grid-template-columns: 1fr;
+            }
+            &__content {
+                grid-column: initial;
+                margin-bottom: 50px;
+            }
+            &__img {
+                grid-column: initial;
+                margin-right: initial;
+
+                &-large {
+                    display: none;
+                }
+                &-mobile {
+                    width: 100%;
+                    @include mid(true);
+                }
+            }
+        }
+
+        @include xs {
+            margin-top: 64px;
+            &__content {
+                margin-bottom: 55px;
+                .textbox:nth-child(odd) {
+                    margin-bottom: 55px;
+                }
+            }
+        }
+    }
+
+    //<!-- section Timeline -->
+    .sctimeline {
+        padding-top: 177px;
+        .container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--gap);
+        }
+        .textbox {
+            grid-column: 1/5;
+            position: sticky;
+            top: calc(var(--h-header) + 40px);
+            height: fit-content;
+            .desc {
+                max-width: initial;
+            }
+        }
+        &__content {
+            grid-column: 6/13;
+            &-item {
+                display: flex;
+                gap: 80px;
+                border-bottom: 2px solid var(--white-cl);
+                padding-bottom: 35px;
+                margin-bottom: 40px;
+                &:last-child {
+                    margin-bottom: initial;
+                }
+                .arrow {
+                    margin-top: 4px;
+                    span {
+                        width: 24px;
+                        height: 24px;
+                        display: inline-block;
+                        position: absolute;
+                    }
+                    span::before {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        background: var(--white-cl);
+                        display: block;
+                        border-radius: 1000px;
+                    }
+                }
+                .detail {
+                    max-width: 650px;
+                    .year {
+                        font-size: var(--f-title-large);
+                        line-height: var(--lh-title-large);
+                        font-family: db;
+                    }
+                    .h3 {
+                        font-family: db;
+                        padding-top: 5px;
+                        padding-bottom: -2px;
+                    }
+                }
+            }
+        }
+
+        @include xs {
+            padding-top: 104px;
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .textbox {
+                grid-column: initial;
+                position: initial;
+                margin-bottom: 10px;
+            }
+            &__content {
+                grid-column: initial;
+                &-item {
+                    gap: 40px;
+                    margin-bottom: 58px;
+                    .arrow {
+                        span {
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //<!-- section Our Team -->
+    .scteam {
+        padding-top: 157px;
+        .textbox {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 44px;
+        }
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 38px;
+            &-item {
+                padding: 24px;
+                background: var(--light-blue);
+                border-radius: 40px;
+                .img {
+                    @include frameimg(327, 400);
+                    img {
+                        @include midimg();
+                        @include transition(var(--time-transtion));
+                        &:hover {
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+                .infor {
+                    text-align: center;
+                    margin-top: 26px;
+                    font-size: var(--f-text-button);
+                    line-height: var(--lh-text-button);
+                    text-transform: uppercase;
+                    &__name {
+                        font-family: db;
+                        margin-bottom: 13px;
+                    }
+                }
+            }
+        }
+
+        @include sm {
+            &__list {
+                gap: 20px;
+            }
+        }
+        @include xs {
+            padding-top: 40px;
+            .textbox {
+                flex-direction: column;
+                align-items: initial;
+                margin-bottom: 36px;
+            }
+            &__list {
+                grid-template-columns: 1fr;
+                &-item {
+                    .infor {
+                        margin-top: 31px;
+                    }
+                }
+            }
+        }
+    }
+
+    .scinvestors {
+        padding-top: 116px;
+        margin-bottom: 108px;
+        .container {
+            text-align: center;
+        }
+        .textbox {
+            max-width: 496px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            margin-bottom: 4px;
+        }
+        &__list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 63px;
+        }
+        @include md {
+            &__list {
+                gap: 20px;
+                img {
+                    max-width: 134px;
+                }
+            }
+        }
+
+        @include sm {
+            &__list {
+                flex-wrap: wrap;
+            }
+        }
+        @include xs {
+            padding-top: 96px;
+            margin-bottom: 0px;
+            .textbox {
+                margin-bottom: 40px;
+            }
+            &__list {
+                flex-wrap: wrap;
+                margin-top: 13px;
+                gap: 16px 40px;
+            }
+        }
+    }
+}

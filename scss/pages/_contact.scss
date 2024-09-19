@@ -1,0 +1,180 @@
+.contactpage {
+    overflow-x: hidden;
+}
+.maincontact {
+    overflow: hidden;
+    .scintouch {
+        margin-top: calc(var(--h-header) + 70px);
+        &__form {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 56px;
+            margin-top: 23px;
+            form {
+                grid-column: 1/9;
+                .formgroup__row {
+                    @include mid(true);
+                    justify-content: space-between;
+                    margin-bottom: 32px;
+                    gap: var(--gap);
+                }
+                .btn.--send {
+                    margin-top: 52px;
+                    height: 70px;
+                }
+            }
+            &-directly {
+                grid-column: 9/13;
+                .contact {
+                    margin-top: 36px;
+                    &__item {
+                        @include mid(true);
+                        justify-content: start;
+                        gap: 15px;
+                        margin-bottom: 24px;
+                        span {
+                            color: var(--white-cl);
+                        }
+                    }
+                }
+            }
+        }
+
+        @include sm {
+            &__form {
+                gap: 26px;
+            }
+        }
+
+        // @include maxW(900px) {
+        //     &__form {
+        //         grid-template-columns: 1fr;
+        //         form {
+        //             grid-column: initial;
+        //         }
+        //     }
+        //     &-directly {
+        //         grid-column: initial;
+        //     }
+        // }
+
+        @include xs {
+            margin-top: calc(var(--h-header) + 40px);
+            &__form {
+                grid-template-columns: 1fr;
+                form {
+                    grid-column: initial;
+                    .formgroup__row {
+                        flex-direction: column;
+                        margin-bottom: 24px;
+                    }
+                    .btn.--send {
+                        margin-top: 44px;
+                        width: 100%;
+                    }
+                }
+                &-directly {
+                    grid-column: initial;
+                    margin-top: 16px;
+                    .contact {
+                        margin-top: 21px;
+                    }
+                }
+            }
+        }
+    }
+    .scfaq {
+        margin-top: 108px;
+        margin-bottom: -30px;
+
+        .textbox {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            &-item {
+                grid-column: 3/11;
+                border-bottom: 1px solid var(--white-cl-light);
+                padding-bottom: 32px;
+                margin-bottom: 32px;
+                .title {
+                    font-family: db;
+                    font-size: var(--f-title-large);
+                    line-height: var(--lh-title-large);
+                    margin-bottom: 16px;
+                    position: relative;
+                    cursor: pointer;
+                    @include transition(--time-transtion);
+
+                    &.--active,
+                    &:hover {
+                        color: var(--blue-cl);
+                    }
+
+                    &::before,
+                    &::after {
+                        content: "";
+                        width: 27px;
+                        height: 2px;
+                        background: var(--white-cl);
+                        display: block;
+                        // @include mid(false);
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                    }
+                    &::before {
+                        transform: rotate(90deg);
+                        @include transition(var(--time-transtion));
+                    }
+                    &.--active {
+                        &::before {
+                            transform: rotate(0deg);
+                        }
+                    }
+                }
+
+                .desc {
+                    max-height: 0;
+                    overflow: hidden;
+                    transition-duration: 0.5s;
+                    &.--slide {
+                        max-height: 200px;
+                    }
+                }
+            }
+        }
+
+        @include md {
+            &__list {
+                &-item {
+                    .title {
+                        padding-right: 36px;
+                    }
+                }
+            }
+        }
+
+        @include xs {
+            margin-top: 20px;
+            margin-bottom: 16px;
+            .textbox {
+                margin-bottom: 32px;
+            }
+            &__list {
+                grid-template-columns: 1fr;
+                &-item {
+                    grid-column: initial;
+                    padding-bottom: 24px;
+                    margin-bottom: 24px;
+                    .title {
+                        font-size: var(--f-title-res);
+                        line-height: var(--lh-title-res);
+                    }
+                }
+            }
+        }
+    }
+}

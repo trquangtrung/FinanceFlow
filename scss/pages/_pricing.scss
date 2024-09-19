@@ -1,0 +1,125 @@
+.mainpricing {
+    overflow: hidden;
+
+    // <!-- section Pricing -->
+    .scpricing {
+        margin-top: calc(var(--h-header) + 40px);
+
+        .textbox {
+            max-width: 660px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        &__build {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &-item {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                span {
+                    white-space: nowrap;
+                }
+            }
+        }
+        @include sm {
+            &__build {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+        }
+
+        @include xs {
+            .textbox {
+                align-items: initial;
+                text-align: initial;
+            }
+            &__build {
+                grid-template-columns: initial;
+                flex-direction: column;
+                justify-content: initial;
+                align-items: initial;
+            }
+        }
+    }
+
+    .scboxs {
+        margin-top: 56px;
+        margin-bottom: 105px;
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--gap);
+        }
+        &__item {
+            padding: 45px 30px;
+            background: var(--light-blue);
+            border-radius: 40px;
+            &-infor {
+                margin-bottom: 30px;
+                .price {
+                    margin-top: 10px;
+                    margin-bottom: 0px;
+                    font-family: db;
+                    text-transform: uppercase;
+                    font-size: var(--heading-h2);
+                    line-height: var(--lh-h2);
+                }
+            }
+            &-list {
+                .content {
+                    &__title {
+                        text-transform: uppercase;
+                        font-family: db;
+                    }
+                    ul {
+                        li {
+                            position: relative;
+                            margin-left: 22px;
+                            &::before {
+                                width: 6px;
+                                height: 6px;
+                                content: "";
+                                border-radius: 1000px;
+                                background: var(--blue-cl);
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                left: -22px;
+                            }
+                        }
+                    }
+                }
+                .btn {
+                    margin-top: 50px;
+                    width: 100%;
+                }
+            }
+        }
+        @include sm {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @include xs {
+            margin-top: 48px;
+            margin-bottom: 0;
+            &__item {
+                margin-bottom: -9px;
+                &-infor {
+                    margin-bottom: 33px;
+                    .price {
+                        margin-bottom: 6px;
+                    }
+                }
+            }
+        }
+    }
+}

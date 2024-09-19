@@ -1,0 +1,175 @@
+// scss Header
+.header {
+    height: var(--h-header);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    width: 100%;
+
+    &.--active {
+        background: var(--bg-btn);
+        height: var(--h-header-scroll);
+    }
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-logo {
+            padding-right: 35px;
+            margin-right: 20px;
+            display: flex;
+            position: relative;
+            &::before {
+                content: "";
+                width: 1px;
+                height: 120%;
+                background: var(--light-blue);
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        &-list {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            li {
+                a {
+                    color: var(--white-cl);
+                    padding: 10px 14px;
+                    text-transform: uppercase;
+                    font-family: dm;
+                    font-size: var(--f-text-menu);
+                    line-height: var(--lh-text-menu);
+                    display: block;
+                    @include transition(var(--time-transtion));
+                    &::after {
+                        content: "";
+                        display: block;
+                        width: 100%;
+                        height: 1px;
+                        background: var(--white-cl);
+                        transform: scaleX(0);
+                        transform-origin: right;
+                        @include transition-after(0.4s);
+                    }
+                    &:hover,
+                    &.active {
+                        &::after {
+                            transform: scaleX(1);
+                            transform-origin: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .btn.--b1 {
+        opacity: 1;
+        visibility: visible;
+    }
+    .btnmenu {
+        background: var(--blue-cl);
+        width: 45px;
+        height: 45px;
+        border-radius: 1000px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        position: relative;
+        &__item {
+            width: 25px;
+            height: 20px;
+            position: absolute;
+
+            &::after,
+            &::before,
+            span {
+                content: "";
+                display: block;
+                background: var(--white-cl);
+                height: 2px;
+                width: 100%;
+                position: absolute;
+                @include transition(0.4s);
+            }
+            &::before {
+                transform: rotate(0deg) translate(0px, 0px);
+            }
+            &::after {
+                bottom: 0;
+                transform: rotate(0deg) translate(0px, 0px);
+            }
+            span {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &.--active {
+                top: 50%;
+                left: 50%;
+                transform: translate(-15px, -10px);
+                &::before {
+                    transform: rotate(45deg) translate(9px, 4px);
+                    @include transition(0.4s);
+                }
+                span {
+                    opacity: 0;
+                    @include transition(0.4s);
+                }
+                &::after {
+                    transform: rotate(-45deg) translate(9px, -4px);
+                    @include transition(0.4s);
+                }
+            }
+        }
+    }
+
+    //Responsive
+    @include maxW(1050px) {
+        &__menu {
+            &-list {
+                li {
+                    a {
+                        padding: 8px 12px;
+                    }
+                }
+            }
+        }
+    }
+    @include sm {
+        &__menu {
+            &-list {
+                display: none;
+            }
+        }
+        .btn.--b1 {
+            display: none;
+        }
+        .btnmenu {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    @include xs {
+        &__menu {
+            &-logo {
+                width: 136px;
+                height: 48px;
+            }
+        }
+    }
+}
